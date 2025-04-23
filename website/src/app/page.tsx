@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(0);
 
   useEffect(() => {
     let scrolled = 0;
