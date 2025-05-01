@@ -1,0 +1,58 @@
+.sidebar {
+    width: 260px;
+    transition: width 0.3s ease-in-out;
+}
+.content {
+    width: calc(100% - 260px);
+}
+.sidebar .icon {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.sidebar .text {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity 0.6s ease-in-out transform 0.3s ease-in-out;
+}
+.sidebar-closed .sidebar {
+    width: 80px;
+}
+.sidebar-closed .content {
+    width: calc(100% - 80px);
+}
+.sidebar-closed .sidebar .icon {
+    opacity: 1;
+}
+.sidebar-closed .sidebar .text {
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.6s ease-in-out transform 0.3s ease-in-out;
+}
+
+@keyframes bell-ring {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-45deg); }
+    50% { transform: rotate(45deg); }
+    75% { transform: rotate(-20deg); }
+    100% { transform: rotate(0deg); }
+}
+.bell {
+    transition: color 300ms ease-in-out;
+}
+.bell:hover svg {
+    animation: bell-ring 600ms ease-in-out;
+    transition: color 300ms ease-in-out;
+    color: #00a2a2;
+}
+@keyframes settings-ring {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(180deg); }
+}
+.settings {
+    transition: color 300ms ease-in-out;
+}
+.settings:hover svg {
+    animation: settings-ring 600ms ease-in-out;
+    transition: color 300ms ease-in-out;
+    color: #00a2a2;
+}
