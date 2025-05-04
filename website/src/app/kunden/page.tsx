@@ -33,6 +33,16 @@ export default function Dashboard() {
 
   const [productType, setProductType] = useState(false);
 
+  const kundenListe = [
+    ["Beginner Ruby On Rails", "Course", 25, "$99.00"],
+    ["Whats new in Laravel 5.4", "Episode", "∞", "$0.00"],
+    ["Pro WordPress Multi-Site", "Course", 30, "$49.99"],
+    ["Mastering UX Methodologies", "Course", 45, "$129.99"],
+    ["Object Oriented JavaScript", "Course", 24, "$29.99"],
+    ["React JS Fundamentals", "Course", 100, "$39.99"],
+    ["Prototyping With Framer.JS", "Episode", "∞", "$0.00"],
+  ];
+
   return (
     <div className="flex bg-[#f4f3ef]">
         <div className="sidebar flex flex-col h-[100vh] overflow-hidden" style={{ background: 'linear-gradient(#66615b,#000 80%)' }}>
@@ -99,32 +109,24 @@ export default function Dashboard() {
                     <th className="px-4 py-3">
                       <input type="checkbox" />
                     </th>
-                    <th className="px-4 py-3">Kunde</th>
-                    <th className="px-4 py-3">Type</th>
+                    <th className="px-4 py-3">Name</th>
+                    <th className="px-4 py-3">Id</th>
                     <th className="px-4 py-3">Inventory</th>
                     <th className="px-4 py-3">Price</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm text-[#333]">
-                  {[
-                    ["Beginner Ruby On Rails", "Course", 25, "$99.00"],
-                    ["Whats new in Laravel 5.4", "Episode", "∞", "$0.00"],
-                    ["Pro WordPress Multi-Site", "Course", 30, "$49.99"],
-                    ["Mastering UX Methodologies", "Course", 45, "$129.99"],
-                    ["Object Oriented JavaScript", "Course", 24, "$29.99"],
-                    ["React JS Fundamentals", "Course", 100, "$39.99"],
-                    ["Prototyping With Framer.JS", "Episode", "∞", "$0.00"],
-                  ].map(([product, type, inventory, price], idx) => (
-                    <tr key={idx} className="hover:bg-gray-50">
-                      <td className="px-4 py-3 border-b border-gray-100">
+                  {kundenListe.map(([product, type, inventory, price], idx) => (
+                    <tr key={idx} className={`hover:bg-[rgba(0,162,162,.05)] ${idx + 1 !== kundenListe.length ? 'border-b border-[rgba(0,0,0,0.2)]' : ''}`}>
+                      <td className="px-4 py-3">
                         <input type="checkbox" />
                       </td>
-                      <td className="px-4 py-3 border-b border-gray-100 text-[#3c73d3] hover:underline cursor-pointer">
+                      <td className="px-4 py-3 text-[#00a2a2] hover:underline cursor-pointer">
                         {product}
                       </td>
-                      <td className="px-4 py-3 border-b border-gray-100">{type}</td>
-                      <td className="px-4 py-3 border-b border-gray-100">{inventory}</td>
-                      <td className="px-4 py-3 border-b border-gray-100">{price}</td>
+                      <td className="px-4 py-3">{type}</td>
+                      <td className="px-4 py-3">{inventory}</td>
+                      <td className="px-4 py-3">{price}</td>
                     </tr>
                   ))}
                 </tbody>
